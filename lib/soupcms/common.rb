@@ -7,3 +7,4 @@ require 'soupcms/common/strategy/application/single_app'
 require 'soupcms/common/strategy/application/sub_domain_based'
 
 require 'soupcms/common/router'
+require 'soupcms/common/util/eval_value'
