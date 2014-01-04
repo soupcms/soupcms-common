@@ -8,3 +8,4 @@ require 'soupcms/common/strategy/application/sub_domain_based'
 
 require 'soupcms/common/router'
 require 'soupcms/common/util/eval_value'
+require 'soupcms/common/util/http_cache_strategy'
