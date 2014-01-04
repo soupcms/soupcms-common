@@ -10,11 +10,15 @@ module SoupCMS
           end
 
           def path
-            request.path[1..-1]
+            request_path[1..-1]
           end
 
           def soupcms_api_url
             "#{request.base_url}/api"
+          end
+
+          def app_base_url
+            "#{request.base_url}"
           end
         end
 

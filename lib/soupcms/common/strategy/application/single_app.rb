@@ -21,6 +21,13 @@ module SoupCMS
             @@soupcms_api_url = soupcms_api_url
           end
 
+          def self.app_base_url=(app_base_url)
+            @@app_base_url = app_base_url
+          end
+
+
+
+
           def app_name
             @@app_name
           end
@@ -33,8 +40,12 @@ module SoupCMS
             @@soupcms_api_url
           end
 
+          def app_base_url
+            @@app_base_url
+          end
+
           def path
-            request.path[1..-1]
+            request_path[1..-1]
           end
 
         end

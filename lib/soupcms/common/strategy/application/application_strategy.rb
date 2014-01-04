@@ -27,14 +27,22 @@ module SoupCMS
             raise 'Implement method soupcms_api_url'
           end
 
+          def app_base_url
+            raise 'Implement method app base url'
+          end
+
           def not_found_message
             "Page '#{path}' not found in application '#{app_name}'"
+          end
+
+          def request_path
+            request.path.gsub('/api/','/')
           end
 
           def application
             @@apps ||= {}
             if @@apps[app_name].nil?
-              @@apps[app_name] = SoupCMS::Common::Model::Application.new(app_name, display_name, soupcms_api_url)
+              @@apps[app_name] = SoupCMS::Common::Model::Application.new(app_name, display_name, soupcms_api_url, app_base_url)
             end
             @@apps[app_name]
           end
