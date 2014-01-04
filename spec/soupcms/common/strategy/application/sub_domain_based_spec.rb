@@ -10,6 +10,7 @@ describe SoupCMS::Common::Strategy::Application::SubDomainBased do
   it { expect(app_strategy.display_name).to eq('soupcms-test') }
   it { expect(app_strategy.path).to eq('posts/slug/my-first-blog-post') }
   it { expect(app_strategy.soupcms_api_url).to eq('http://soupcms-test.example.com:8080/api') }
+  it { expect(app_strategy.app_base_url).to eq('http://soupcms-test.example.com:8080') }
   it { expect(app_strategy.not_found_message).to eq("Page 'posts/slug/my-first-blog-post' not found in application 'soupcms-test'") }
 
 end

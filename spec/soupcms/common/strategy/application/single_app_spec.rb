@@ -9,6 +9,7 @@ describe SoupCMS::Common::Strategy::Application::SingleApp do
       config.app_name = 'soupcms-test'
       config.display_name = 'soupCMS Test'
       config.soupcms_api_url = 'http://example.com:8081/api/soupcms-test'
+      config.app_base_url = 'http://example.com:8081/soupcms-test'
     end
   end
 
@@ -18,6 +19,7 @@ describe SoupCMS::Common::Strategy::Application::SingleApp do
   it { expect(app_strategy.display_name).to eq('soupCMS Test') }
   it { expect(app_strategy.path).to eq('posts/slug/my-first-blog-post') }
   it { expect(app_strategy.soupcms_api_url).to eq('http://example.com:8081/api/soupcms-test') }
+  it { expect(app_strategy.app_base_url).to eq('http://example.com:8081/soupcms-test') }
   it { expect(app_strategy.not_found_message).to eq("Page 'posts/slug/my-first-blog-post' not found in application 'soupcms-test'") }
 
 end

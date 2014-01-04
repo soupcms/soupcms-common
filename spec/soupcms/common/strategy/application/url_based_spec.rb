@@ -11,6 +11,7 @@ describe SoupCMS::Common::Strategy::Application::UrlBased do
     it { expect(app_strategy.display_name).to eq('soupcms-test') }
     it { expect(app_strategy.path).to eq('posts/slug/my-first-blog-post') }
     it { expect(app_strategy.soupcms_api_url).to eq('http://example.com:8080/api/soupcms-test') }
+    it { expect(app_strategy.app_base_url).to eq('http://example.com:8080/soupcms-test') }
     it { expect(app_strategy.not_found_message).to eq("Page 'posts/slug/my-first-blog-post' not found in application 'soupcms-test'") }
   end
 
