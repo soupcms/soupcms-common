@@ -13,11 +13,20 @@ module SoupCMS
         routes.push RouteMatcher.new(route, controller_class)
       end
 
+      def default(controller_class)
+        @default_controller_class = controller_class
+      end
+
       def resolve(path, params)
         url_parts = path.split('/')
         matched_route = routes.find { |route| route.match(url_parts) }
-        matched_route.params(url_parts).each { |key, value| params[key] = value }
-        matched_route.controller_class
+        if matched_route
+          matched_route.params(url_parts).each { |key, value| params[key] = value }
+          matched_route.controller_class
+        elsif @default_controller_class
+          params['slug'] = path
+          @default_controller_class
+        end
       end
 
     end
