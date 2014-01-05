@@ -10,7 +10,11 @@ module SoupCMS
       attr_reader :routes
 
       def add(route, controller_class)
-        routes.push RouteMatcher.new(route, controller_class)
+        add_route Route.new(route, controller_class)
+      end
+
+      def add_route(route)
+        routes.push route
       end
 
       def default(controller_class)
@@ -22,47 +26,15 @@ module SoupCMS
         matched_route = routes.find { |route| route.match(url_parts) }
         if matched_route
           matched_route.params(url_parts).each { |key, value| params[key] = value }
-          matched_route.controller_class
+          return matched_route.controller_class
         elsif @default_controller_class
           params['slug'] = path
-          @default_controller_class
+          return @default_controller_class
         end
       end
 
     end
 
-    class RouteMatcher
-
-      def initialize(key, controller_class)
-        @key = key
-        @key_parts = key.split('/')
-        @controller_class = controller_class
-      end
-
-      attr_reader :key_parts, :controller_class
-
-      def match(url_parts)
-        return false if url_parts.size != key_parts.size
-        key_parts.each_index do |index|
-          key = key_parts[index]
-          next if key.match(/^:/)
-          return false if key != url_parts[index]
-        end
-        true
-      end
-
-      def params(url_parts)
-        params = {}
-        key_parts.each_index do |index|
-          key = key_parts[index]
-          if key.match(/^:/)
-            params[key.match(/^:/).post_match] = url_parts[index]
-          end
-        end
-        params
-      end
-
-    end
 
 
   end

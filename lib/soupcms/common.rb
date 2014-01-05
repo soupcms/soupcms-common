@@ -10,6 +10,7 @@ require 'soupcms/common/strategy/application/url_based'
 require 'soupcms/common/strategy/application/single_app'
 require 'soupcms/common/strategy/application/sub_domain_based'
 
+require 'soupcms/common/route'
 require 'soupcms/common/router'
 require 'soupcms/common/util/eval_value'
 require 'soupcms/common/util/http_cache_strategy'
