@@ -27,6 +27,14 @@ module SoupCMS
           ENV['RACK_ENV'] || 'test'
         end
 
+        def production?
+          environment == 'production'
+        end
+
+        def debug?
+          params['debug'] == 'true'
+        end
+
       end
 
     end
