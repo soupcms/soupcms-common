@@ -9,8 +9,8 @@ module SoupCMS
 
       attr_reader :routes
 
-      def add(route, controller_class)
-        add_route Route.new(route, controller_class)
+      def add(route, controller_class, model_name = nil)
+        add_route Route.new(route, controller_class, model_name)
       end
 
       def add_route(route)
