@@ -17,7 +17,14 @@ module SoupCMS
         end
 
         def headers(params)
-          return {} if (params['include'] == 'drafts') || (ENV['RACK_ENV'] != 'production')
+          if (params['include'] == 'drafts') || (ENV['RACK_ENV'] != 'production')
+            {}
+          else
+            cache_headers
+          end
+        end
+
+        def cache_headers
           {
               'Cache-Control' => "public, max-age=#{max_age}",
               'Expires' => CGI.rfc1123_date(Time.now.utc + max_age)
