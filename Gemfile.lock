@@ -33,3 +33,6 @@ DEPENDENCIES
   rake
   rspec
   soupcms-common!
+
+BUNDLED WITH
+   1.11.2
