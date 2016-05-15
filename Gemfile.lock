@@ -10,7 +10,7 @@ GEM
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
-    rake (11.1.1)
+    rake (11.1.2)
     rspec (3.4.0)
       rspec-core (~> 3.4.0)
       rspec-expectations (~> 3.4.0)
@@ -35,4 +35,4 @@ DEPENDENCIES
   soupcms-common!
 
 BUNDLED WITH
-   1.11.2
+   1.12.3
